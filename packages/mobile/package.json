@@ -1,5 +1,5 @@
 {
-  "name": "@eidolon/app",
+  "name": "@eidolon/mobile",
   "packageManager": "yarn@4.12.0",
   "private": true,
   "version": "0.0.0",

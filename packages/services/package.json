@@ -1,5 +1,5 @@
 {
-    "name": "@eidolon/server",
+    "name": "@eidolon/services",
     "packageManager": "yarn@4.12.0",
     "private": true,
     "type": "module",
