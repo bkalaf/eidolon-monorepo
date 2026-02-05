@@ -221,7 +221,7 @@ type CrudSchemaSet<Entity extends object, Insert extends object> = {
   zDeleteOneOutput: z.ZodType<Entity>;
   zDeleteManyInput: z.ZodObject<z.ZodRawShape>;
   zDeleteManyOutput: z.ZodObject<z.ZodRawShape>;
-  zInsertOneInput: z.ZodObject<z.ZodRawShape>;
+  zInsertOneInput: z.ZodObject<z.ZodRawShape, 'strip', { data: Insert }>;
   zInsertOneOutput: z.ZodType<Entity>;
 };
 

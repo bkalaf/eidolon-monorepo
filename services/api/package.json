@@ -13,7 +13,7 @@
     "lint": "echo \"No lint configured\""
   },
   "dependencies": {
-    "argon2": "^0.35.0",
+    "argon2": "^0.44.0",
     "drizzle-orm": "^0.45.1",
     "h3": "^1.5.4",
     "nitropack": "^2.13.1",
