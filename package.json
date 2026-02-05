@@ -14,7 +14,7 @@
     "services/*"
   ],
   "scripts": {
-    "dev": "concurrently \"yarn workspace @eidolon/web dev\" \"yarn workspace @eidolon/services dev\""
+    "dev": "yarn workspace @eidolon/web dev"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",

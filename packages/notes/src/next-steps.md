@@ -1,4 +1,11 @@
 //chats/next-steps.md
+
+## Package boundary reset (authoritative)
+- `@eidolon/services`: owns database implementation boundaries only (Drizzle schema/migrations, SQL/database calls, DTO mapping, and Cloudflare function handlers that touch data).
+- `@eidolon/app` (TanStack Start app): owns routing and server-function orchestration.
+- `@eidolon/shared`: owns reusable cross-runtime contracts (TypeScript domain models, zod validation schemas, DTO/filter/CRUD contract types).
+- Removed package assumptions from prior notes: do **not** reference `@eidolon/edge` or `@eidolon/api-service` in future TODOs.
+
 Hook this pipeline into the GameMachine night flow: create jobs for Spy/Widow, render the developer artifact, wait for socket ACKs/timeouts, and persist the artifact/phase mapping in Mongo.
 Expand the realtime layer: expose screenshot:show/ack, storyteller misinfo requests, and dev/replay artifact APIs along with the client modal/pop-out/replay views.
 Finish the wiki parsing script updates (summary merging, reminder scaffolding, night-logic tokens) so downstream data consumers can rely on the richer schema.
