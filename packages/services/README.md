@@ -2,15 +2,15 @@
 
 ## Overview
 
-This workspace runs the Nitro API for Eidolon. It serves the `/hello` check, provides hooks for server-side concerns (Mongo + screenshot jobs), and routes every other GET request through the SPA entry so that `packages/web/index.html` bootstraps the single-page UI.
+This workspace runs the Nitro API for Eidolon. It serves the `/hello` check, provides hooks for server-side concerns (Postgres + screenshot jobs), and routes every other GET request through the SPA entry so that `packages/web/index.html` bootstraps the single-page UI.
 
 ## Runtime hooks
 
 `src/init.ts` orchestrates the shared runtime pieces and is already invoked by health-check routes before they respond.
 
-### Mongoose
+### Postgres
 
-`src/hooks/mongoose.ts` maintains a singleton connection pool, respects `MONGO_URI`/`MONGODB_URI`, and logs lifecycle events. That helper is safe for warm reloads and keeps `strictQuery` enabled.
+`src/hooks/postgres.ts` maintains a shared `pg.Pool`, exposes drizzle helpers, and respects `DATABASE_URL`, `POSTGRES_MAX_CONNECTIONS`, and `POSTGRES_SSL`. The init helper warms the connection first, so the rest of the API can safely grab `getPostgresPool()` or `getPostgresDrizzle()` without reconnect logic.
 
 ### Screenshot queue
 

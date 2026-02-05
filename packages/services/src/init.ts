@@ -1,4 +1,4 @@
-import { connectMongo } from "./hooks/mongoose.js";
+import { connectPostgres } from "./hooks/postgres.js";
 import { initializeScreenshotServer } from "./hooks/screenshots.js";
 
 let initPromise: Promise<void> | null = null;
@@ -10,7 +10,7 @@ export function ensureServerInitialized() {
 
   initPromise = (async () => {
     try {
-      await connectMongo();
+      await connectPostgres();
       initializeScreenshotServer();
     } catch (error) {
       initPromise = null;

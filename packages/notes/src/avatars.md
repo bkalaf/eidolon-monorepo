@@ -11,17 +11,17 @@ Below is a clean, shadcn-friendly plan with concrete component + schema shapes.
 
 ### Best practice (recommended)
 
-Store avatars in object storage (S3 / Cloudflare R2 / GCS) and store **a URL (or key)** in Mongo.
+Store avatars in object storage (S3 / Cloudflare R2 / GCS) and store **a URL (or key)** in Postgres.
 
-* Mongo user doc: `avatarKey` or `avatarUrl`
+* Postgres user row: `avatar_key` or `avatar_url`
 * Client gets a normal URL (or signed URL)
 * Avatars load with `<img src=... />`
 * Caching becomes trivial
 * Websocket messages remain tiny and serializable
 
-### “Store binary in Mongo” (you can, but don’t)
+### “Store binary in Postgres” (you can, but don’t)
 
-If you store binary in Mongo (Buffer), you still should **not** broadcast it via WS. Instead:
+If you store binary in Postgres (`BYTEA`), you still should **not** broadcast it via WS. Instead:
 
 * Server exposes `GET /users/:id/avatar`
 * Client loads via URL
@@ -41,30 +41,21 @@ No blobs. No Buffers. No base64 unless you enjoy pain.
 
 ---
 
-## Mongoose: add avatar fields
+## Postgres: add avatar columns
 
-Add fields that support either hosted URL or an object-store key.
+Add columns that support either a hosted URL or an object-storage key.
 
 ```ts
-// user.schema.ts
-import { Schema, model } from "mongoose";
+// src/data/schema/users.ts
+import { bytea, pgTable, serial, text, varchar } from "drizzle-orm/pg-core";
 
-const UserSchema = new Schema(
-  {
-    name: { type: String, required: true },
-
-    // Preferred:
-    avatarUrl: { type: String, default: null }, // e.g. signed URL or public URL
-    avatarKey: { type: String, default: null }, // e.g. "avatars/userId.png"
-
-    // If you insist on DB binary (not recommended):
-    // avatar: { data: Buffer, contentType: String },
-
-  },
-  { timestamps: true }
-);
-
-export const User = model("User", UserSchema);
+export const users = pgTable("users", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  avatarUrl: varchar("avatar_url", { length: 1024 }).default(null),
+  avatarKey: varchar("avatar_key", { length: 256 }).default(null),
+  avatarData: bytea("avatar_data").default(null),
+});
 ```
 
 If you later choose object storage, `avatarKey` is the durable truth, and `avatarUrl` can be a signed URL generated on demand.

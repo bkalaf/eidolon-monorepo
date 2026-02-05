@@ -13,7 +13,7 @@
 		"cf-typegen": "wrangler types"
 	},
 	"dependencies": {
-		"@cloudflare/vite-plugin": "^1.13.8",
+		"@cloudflare/vite-plugin": "patch:@cloudflare/vite-plugin@npm%3A1.23.0#~/.yarn/patches/@cloudflare-vite-plugin-npm-1.23.0-030d2b6622.patch",
 		"@tailwindcss/vite": "^4.0.6",
 		"@tanstack/react-devtools": "^0.7.0",
 		"@tanstack/react-router": "^1.132.0",
