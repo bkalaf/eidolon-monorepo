@@ -1,0 +1,108 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import url('https://fonts.googleapis.com/css2?family=Germania+One&display=swap');
+
+@theme {
+    --font-bitcount-grid-double: 'Bitcount Grid Double';
+    --font-caesar-dressing: 'Caesar Dressing';
+    --font-cascadia-code: 'Cascadia Code';
+    --font-coming-soon: 'Coming Soon';
+    --font-concert-one: 'Concert One';
+    --font-fira-code: 'Fira Code';
+    --font-fira-sans: 'Fira Sans';
+    --font-grandstander: 'Grandstander';
+    --font-inconsolata: 'Inconsolata';
+    --font-jetbrains-mono: 'JetBrains Mono';
+    --font-manufacturing-consent: 'Manufacturing Consent';
+    --font-metal-mania: 'Metal Mania';
+    --font-monofett: 'Monofett';
+    --font-montserrat: 'Montserrat';
+    --font-montserrat-alt: 'Montserrat Alternates';
+    --font-open-sans: 'Open Sans';
+    --font-palanquin-dark: 'Palanquin Dark';
+    --font-patrick-hand: 'Patrick Hand';
+    --font-patrick-hand-sc: 'Patrick Hand SC';
+    --font-permanent-marker: 'Permanent Marker';
+    --font-raleway: 'Raleway';
+    --font-raleway-dots: 'Raleway Dots';
+    --font-righteous: 'Righteous';
+    --font-rowdies: 'Rowdies';
+    --font-rubik: 'Rubik';
+    --font-source-code-pro: 'Source Code Pro';
+}
+
+@layer base {
+    html {
+        color-scheme: dark;
+    }
+
+    * {
+        @apply font-rubik border-gray-200 dark:border-gray-800;
+    }
+
+    html,
+    body {
+        @apply text-gray-900 bg-gray-50 dark:bg-gray-950 dark:text-gray-200;
+    }
+
+    .using-mouse * {
+        outline: none !important;
+    }
+}
+
+@layer components {
+    td,
+    th {
+        @apply border border-black text-center;
+    }
+}
+
+@layer utilities {
+    .font-rubik {
+        font-family:
+            'Rubik',
+            'Segoe UI',
+            system-ui,
+            -apple-system,
+            sans-serif;
+    }
+    .font-open-sans {
+        font-family: Open Sans;
+    }
+    .font-cinzel {
+        font-family: 'Cinzel', serif;
+    }
+    .font-germania-one {
+        font-family: 'Germania One', system-ui;
+        font-weight: 400;
+        font-style: normal;
+    }
+}
+
+@custom-variant aria-invalid (&[aria-invalid="true"]);
+@custom-variant data-dirty (&[data-dirty="true"]);
+
+@custom-variant aria-current (&[aria-current="page"]);
+@custom-variant aria-not-current {
+    &: not([aria-current= 'page']);
+}
+@custom-variant data-group-a (&[data-group-id="a"]);
+@custom-variant data-group-b (&[data-group-id="b"]);
+@custom-variant data-group-c (&[data-group-id="c"]);
+
+th,
+html,
+body,
+table,
+input,
+button,
+th,
+td,
+a,
+span,
+div,
+p {
+    font-family: 'Germania One', system-ui;
+    font-weight: 400;
+    font-style: normal;
+}

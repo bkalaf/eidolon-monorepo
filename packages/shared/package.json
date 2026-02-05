@@ -1,0 +1,14 @@
+{
+  "name": "@eidolon/shared",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "devDependencies": {
+    "prettier": "^3.8.1",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@eidolon/web": "workspace:^",
+    "@types/node": "^25.2.0"
+  }
+}

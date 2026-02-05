@@ -1,0 +1,3 @@
+name = "my-app-server"
+main = "dist/index.mjs"
+compatibility_date = "2026-02-04"

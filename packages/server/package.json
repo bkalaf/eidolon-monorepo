@@ -1,0 +1,24 @@
+{
+    "name": "@eidolon/server",
+    "packageManager": "yarn@4.12.0",
+    "private": true,
+    "type": "module",
+    "version": "0.0.0",
+    "dependencies": {
+        "@tanstack/react-router": "^1.158.0",
+        "@types/node": "^25.2.0",
+        "mongoose": "^9.1.6",
+        "nitropack": "^2.13.1"
+    },
+    "devDependencies": {
+        "prettier": "^3.8.1",
+        "typescript": "^5.9.3",
+        "wrangler": "^4.62.0"
+    },
+    "scripts": {
+        "dev": "nitro dev",
+        "build": "nitro build",
+        "preview": "wrangler dev ./dist --ip 127.0.0.1",
+        "deploy": "wrangler deploy ./dist"
+    }
+}
