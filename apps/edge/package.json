@@ -1,0 +1,15 @@
+{
+  "name": "@eidolon/edge",
+  "packageManager": "yarn@4.12.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler pages dev --local --port 8787",
+    "build": "wrangler pages publish --dry-run",
+    "deploy": "wrangler pages publish",
+    "lint": "echo \"No lint step configured\""
+  },
+  "devDependencies": {
+    "wrangler": "^4.62.0"
+  }
+}

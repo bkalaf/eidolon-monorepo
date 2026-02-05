@@ -1,0 +1,29 @@
+{
+  "name": "@eidolon/api-service",
+  "packageManager": "yarn@4.12.0",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "nitro dev",
+    "build": "nitro build",
+    "start": "node dist/server/index.js",
+    "drizzle:generate": "drizzle-kit generate:ts",
+    "drizzle:push": "drizzle-kit push",
+    "lint": "echo \"No lint configured\""
+  },
+  "dependencies": {
+    "argon2": "^0.35.0",
+    "drizzle-orm": "^0.45.1",
+    "h3": "^1.5.4",
+    "nitropack": "^2.13.1",
+    "pg": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.0",
+    "@types/pg": "^8.16.0",
+    "drizzle-kit": "^0.31.8",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

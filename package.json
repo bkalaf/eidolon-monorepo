@@ -9,7 +9,9 @@
   },
   "private": true,
   "workspaces": [
-    "packages/*"
+    "apps/*",
+    "packages/*",
+    "services/*"
   ],
   "scripts": {
     "dev": "concurrently \"yarn workspace @eidolon/web dev\" \"yarn workspace @eidolon/services dev\""
