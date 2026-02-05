@@ -1,0 +1,2 @@
+# eidolon
+# eidolon-monorepo
